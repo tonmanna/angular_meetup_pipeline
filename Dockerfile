@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:8
 
 LABEL IT_TEAM="it@itopplus.com"
 EXPOSE 3000

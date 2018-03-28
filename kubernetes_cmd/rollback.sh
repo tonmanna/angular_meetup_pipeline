@@ -1,0 +1,1 @@
+kubectl rolling-update anuglarmeetup --rollback
