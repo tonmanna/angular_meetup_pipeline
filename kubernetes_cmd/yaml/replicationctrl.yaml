@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: anuglarmeetup
+spec:
+  replicas: 1
+  selector:
+    app: anuglarmeetup
+    vesion : 0.0.1
+  template:
+    metadata:
+      labels:
+        app: anuglarmeetup
+        vesion : 0.0.1
+    spec:
+      containers:
+        - name: anuglarmeetup
+          image: gcr.io/clean-silo-630/github-tonmanna-angular_meetup_pipeline@sha256:e2f2466338243faeb5f6b949518832100e53d43c265e2c3f36d2dc5503618192          
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: dev
+              value: "true"
+      imagePullSecrets:
+        - name: gcrpull

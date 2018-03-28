@@ -8,6 +8,6 @@ RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 
 ADD . $INSTALL_PATH
-
+RUN chmod 755 *.sh
 RUN npm install
 CMD ["./startscript.sh"]

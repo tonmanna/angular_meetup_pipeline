@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: anuglarmeetup
+  name: anuglarmeetup
+  namespace: default
+spec:
+  ports:
+    - name : anuglarmeetup
+      port: 5000
+      targetPort : 3000
+  selector:
+    app: anuglarmeetup
+  externalIPs:
+    - 10.0.1.68
+  type: LoadBalancer
