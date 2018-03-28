@@ -19,10 +19,13 @@ app.use('/sample', sampleRouter);
 const DIST_FOLDER = join(process.cwd(), '../dist');
 const DIST_PATH = join(DIST_FOLDER, 'browser');
 // Set the engine
-
-const ngExpressEngine = require('./ssr');    
-app.engine('html', (_, options, callback) => ngExpressEngine(options,callback));
-app.set('views', DIST_PATH);
+if (process.env.NODE_ENV == "production") {
+    const ngExpressEngine = require('./ssr');    
+    app.engine('html', (_, options, callback) => ngExpressEngine(options,callback));
+    app.set('views', DIST_PATH);
+} else {
+    app.engine('html', require('ejs').renderFile);
+}
 
 app.set('view engine', 'html');
 app.use('/', express.static('../dist/browser', {

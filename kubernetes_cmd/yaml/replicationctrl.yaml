@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: anuglarmeetup
-          image: gcr.io/clean-silo-630/github-tonmanna-angular_meetup_pipeline:4be984e3080187cedb63c6b412f70112208e83df
+          image: gcr.io/clean-silo-630/github-tonmanna-angular_meetup_pipeline:94a59dee58431e430e197ed5eb5bf80e8e2f1746
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
